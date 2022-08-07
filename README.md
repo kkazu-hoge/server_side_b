@@ -1,24 +1,54 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## 前提環境
+サーバーサイドAにて環境構築済<br>
+サーバ：EC2<br>
+OS：Amazon Lnux2
 
-Things you may want to cover:
+## 確認手順
 
-* Ruby version
+①「git clone」でEC2へ「server_side_b」をダウンロード（/home/ec2-user直下）
+```
+$ git clone https://github.com/kkazu-hoge/server_side_b.git
+$ cd server_side_b
+```
 
-* System dependencies
+②gemをインストール
+```
+$ bundle install
+```
+③webpackerをインストール、コンパイル
+```
+$ rails webpacker:install
+$ rails webpacker:compile
+```
 
-* Configuration
+④マイグレーション
+```
+$ rails db:migrate
+```
 
-* Database creation
+※マイグレーション実行時にエラーが発生した場合は記載の解消コマンドを実行し、<br>
+再度マイグレーションを実行ください。
+＜エラー内容＞
+```
+ Unable to monitor directories for changes because iNotify max watches exceeded.
+ See https://github.com/guard/listen/blob/master/README.md#increasing-the-amount-of-inotify-watchers .
+ (Listen::Error::INotifyMaxWatchesExceeded)
+ ```
+＜解消コマンド＞
+```
+$ sudo sh -c "echo fs.inotify.max_user_watches=524288 >> /etc/sysctl.conf"
+$ sudo sysctl -p
+```
 
-* Database initialization
+⑤railsサーバ起動
+```
+$ rails s
+```
 
-* How to run the test suite
+⑥動作確認<br>
+【url】http://127.0.0.1:3000/
 
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+⑦確認後はrailsサーバーを停止ください<br>
+「ctrl+c」

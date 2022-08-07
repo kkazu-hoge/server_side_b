@@ -1,0 +1,12 @@
+      <h2>投稿フォーム</h2>
+      <div class="form-group">
+      <%= form_with model:@post_string, url: post_strings_create_path, method: :create do |f| %>
+        <%= f.hidden_field :user_id, value: @user_id %>
+        <div>
+          <%= f.text_area :body, placeholder: "文字を入力ください", autofocus: true, autocomplete: "body",  rows: "6" %>
+        </div>
+        <div>
+          <%= f.submit "投稿" %>
+        </div>
+      <% end %>
+      </div>

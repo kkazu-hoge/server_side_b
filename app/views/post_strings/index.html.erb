@@ -1,0 +1,29 @@
+      <h2>投稿一覧</h2>
+      <table class="table">
+        <thead>
+          <tr>
+            <th>投稿者</th>
+            <th>内容</th>
+            <th>作成日時</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @post_strings.each do |pt| %>
+          <tr>
+            <td>
+              <%= User.find(pt.user_id).name %>
+            </td>
+            <td>
+              <%= pt.body %>
+            </td>
+            <td>
+              <%= pt.created_at.strftime("%Y年%m月%d日 %H時%M分") %>
+            </td>
+          </tr>
+          <% end %>
+        </tbody>
+      </table>
+      <%= paginate @post_strings %>
+    </div>
+  </div>
+</div>

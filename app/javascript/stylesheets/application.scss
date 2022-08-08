@@ -1,5 +1,18 @@
 @import '~bootstrap/scss/bootstrap';
 
+#notice {
+  text-align: center;
+  background-color: #dbffff;
+  font-weight: bold;
+}
+
+#alert {
+  text-align: center;
+  background-color: #ffc6c6;
+  color: #ff0000;
+  font-weight: bold;
+}
+
 .container {
   margin-top: 20px;
 }

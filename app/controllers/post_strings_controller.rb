@@ -1,6 +1,6 @@
 class PostStringsController < ApplicationController
-  protect_from_forgery
   before_action :authenticate_user!, except: [:index]
+  protect_from_forgery
 
   def index
     @post_strings = PostString.all.order(created_at: :desc).page(params[:page])
@@ -14,9 +14,9 @@ class PostStringsController < ApplicationController
   def create
     post_string = PostString.new(post_string_params)
     if post_string.save
-      redirect_to post_strings_index_path
+      redirect_to post_strings_index_path, notice: "投稿しました"
     else
-      redirect_to post_strings_new_path
+      redirect_to post_strings_new_path, alert: "投稿できませんでした。"
     end
   end
 

@@ -10,11 +10,15 @@
   </head>
   <body>
     <%= render 'layouts/header' %>
+    <div id="notice"><%= notice %></div>
+    <div id="alert"><%= alert %></div>
     <main>
-    <div class="container">
-      <div class="row">
-        <div class="col-10">
-          <%= yield %>
+    <div class='container'>
+      <div class='row' style = "margin-top: 50px;">
+        <div class="col-12">
+          <div class="text-center">
+            <%= yield %>
+          </div>
         </div>
       </div>
     </div>

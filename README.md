@@ -29,7 +29,7 @@ $ rails db:migrate
 ```
 
 ※マイグレーション実行時にエラーが発生した場合は記載の解消コマンドを実行し、<br>
-再度マイグレーションを実行ください。
+再度マイグレーションを実行ください。<br>
 ＜エラー内容＞
 ```
  Unable to monitor directories for changes because iNotify max watches exceeded.
